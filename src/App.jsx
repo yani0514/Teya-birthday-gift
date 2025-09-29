@@ -13,7 +13,7 @@ function App() {
   }, [])
 
   return (
-     <Router>
+     <Router basename="/Teya-birthday-gift">
         <Routes>
           <Route path='/' element = {<HappyBirthday />}></Route>
           <Route path='/wishCard' element = {<WishCard />}></Route>
