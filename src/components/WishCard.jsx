@@ -10,7 +10,7 @@ export default function WishCard({ entry, className = "" }) {
         {/* Image adapts: max height & object-contain handles vertical vs horizontal */}
         {entry.photo && (
           <img
-            src={entry.photo}
+            src={`${import.meta.env.BASE_URL}${entry.photo.startsWith('/') ? entry.photo.slice(1) : entry.photo}`}
             alt={entry.name}
             loading="lazy"
             className="
@@ -32,7 +32,16 @@ export default function WishCard({ entry, className = "" }) {
     );
   }
 
-  // Video card (unchanged, but keeps max height)
+  // Video card - only render if src exists
+  if (!entry.src) {
+    return (
+      <div className={base}>
+        <p className="text-lg text-gray-600">Видеото не може да бъде заредено.</p>
+        <p className="mt-3 text-lg text-gray-600">От {entry.name} ❤️</p>
+      </div>
+    );
+  }
+
   return (
     <div className={base}>
       <video
@@ -40,7 +49,7 @@ export default function WishCard({ entry, className = "" }) {
         preload="metadata"
         className="w-full h-auto rounded-xl object-contain max-h-[65vh]"
       >
-        <source src={entry.src} type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}${entry.src.startsWith('/') ? entry.src.slice(1) : entry.src}`} type="video/mp4" />
         Вашият браузър не поддържа видеото.
       </video>
 

@@ -77,12 +77,12 @@ export default function Wishes() {
   return (
     <div
       className="min-h-screen w-full flex items-center justify-center bg-center bg-cover"
-      style={{ backgroundImage: "url('/assets/photos/version6.png')" }}
+      style={{ backgroundImage: `url(${import.meta.env.BASE_URL}assets/photos/version6.png)` }}
     >
       {/* 🔙 Back button in top-left corner */}
       <Link to="/" className="absolute top-15 left-15">
         <img
-          src="/assets/icons/back-button.png"
+          src={`${import.meta.env.BASE_URL}assets/icons/back-button.png`}
           alt="Назад"
           className="w-20 h-20 hover:scale-110 transition-transform duration-200"
         />
