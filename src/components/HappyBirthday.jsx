@@ -5,7 +5,7 @@ export default function HappyBirthday() {
     <div
       className="w-screen h-screen flex justify-center items-end bg-center"
       style={{
-        backgroundImage: "url('/assets/photos/version6.png')",
+        backgroundImage: `url(${import.meta.env.BASE_URL}assets/photos/version6.png)`,
       }}
     >
       <div className="w-[80%] md:w-[60%] mb-8 p-8 bg-[rgba(255,255,255,0.75)] text-gray-800 text-center flex flex-col justify-center items-center backdrop-blur rounded-3xl shadow-2xl">

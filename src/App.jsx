@@ -12,8 +12,11 @@ function App() {
     console.log("hui")
   }, [])
 
+  // Use basename only in production (when deployed to GitHub Pages)
+  const basename = import.meta.env.PROD ? "/Teya-birthday-gift" : "/";
+
   return (
-     <Router basename="/Teya-birthday-gift">
+     <Router basename={basename}>
         <Routes>
           <Route path='/' element = {<HappyBirthday />}></Route>
           <Route path='/wishCard' element = {<WishCard />}></Route>
